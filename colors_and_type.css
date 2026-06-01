@@ -1,0 +1,229 @@
+/* =========================================================================
+   UNITED FIELD SERVICES — Colors & Type
+   Tokens for the UFS brand identity system. Import this file as the base
+   layer; layer component CSS on top.
+   ========================================================================= */
+
+/* ---------- Fonts (Google Fonts CDN) ------------------------------------- */
+/* Playfair Display 700/900 — Display + headlines (serif, editorial weight) */
+/* DM Sans 300/400/500/600 — Body, UI, labels (geometric sans, functional) */
+/* Oswald is loaded as a stand-in for the custom "UNITED" wordmark in the logo
+   (the actual logo uses a custom heavy-block typeface). */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,500;1,700&family=Oswald:wght@600;700&display=swap');
+
+:root {
+  /* ===== COLOR — Brand ===== */
+  --ufs-charcoal:   #1F1F1F;   /* primary; nav, hero, wordmark */
+  --ufs-burgundy:   #72262A;   /* brand red — CTAs, links, key accents */
+  --ufs-gold:       #F0D8AA;   /* logo accent — decorative on dark only */
+
+  /* ===== COLOR — Neutrals ===== */
+  --white:          #FFFFFF;
+  --off-white:      #F7F5F2;   /* default page background */
+  --warm-gray:      #E8E4DF;   /* dividers, alt rows, card outlines */
+  --mid-gray:       #9E9A96;   /* supporting text, captions, metadata */
+  --dark-gray:      #3A3A3A;   /* secondary dark surfaces */
+  --charcoal:       #2C2C2C;   /* alt dark surface */
+
+  /* ===== COLOR — Semantic (foreground / background) ===== */
+  --fg-1:           var(--ufs-charcoal);  /* primary text on light */
+  --fg-2:           var(--dark-gray);     /* secondary text on light */
+  --fg-3:           var(--mid-gray);      /* tertiary / metadata */
+  --fg-on-dark-1:   var(--off-white);     /* primary text on dark */
+  --fg-on-dark-2:   #C9C5C0;              /* secondary text on dark */
+
+  --bg-page:        var(--off-white);
+  --bg-surface:     var(--white);
+  --bg-alt:         var(--warm-gray);
+  --bg-dark:        var(--ufs-charcoal);
+  --bg-dark-alt:    var(--charcoal);
+
+  --border:         var(--warm-gray);
+  --border-strong:  var(--mid-gray);
+  --divider:        rgba(31, 31, 31, 0.10);
+
+  /* ===== COLOR — Action ===== */
+  --accent:         var(--ufs-burgundy);
+  --accent-hover:   #5B1E22;              /* burgundy, 8% darker */
+  --accent-press:   #4A1A1D;
+  --link:           var(--ufs-burgundy);
+  --focus-ring:     rgba(114, 38, 42, 0.35);
+
+  /* ===== COLOR — Status (used as tints, never as backgrounds for body) ===== */
+  --status-success: #3E6B47;
+  --status-warning: #B07A1E;
+  --status-danger:  #8A2A2F;
+  --status-info:    #2F4D6E;
+
+  /* ===== TYPE — Families ===== */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                  Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    'SF Mono', 'Roboto Mono', Menlo, Consolas, monospace;
+
+  /* ===== TYPE — Scale (px from brand guidelines) ===== */
+  --fs-display: 72px;   --lh-display: 1.05;
+  --fs-h1:      48px;   --lh-h1:      1.10;
+  --fs-h2:      32px;   --lh-h2:      1.18;
+  --fs-h3:      22px;   --lh-h3:      1.30;
+  --fs-body:    16px;   --lh-body:    1.60;
+  --fs-small:   13px;   --lh-small:   1.50;
+  --fs-label:   11px;   --lh-label:   1.40;
+
+  /* ===== TYPE — Weights ===== */
+  --fw-display-bold:   700;
+  --fw-display-black:  900;
+  --fw-body-light:     300;
+  --fw-body-regular:   400;
+  --fw-body-medium:    500;
+  --fw-body-semi:      600;
+
+  /* ===== SPACING — 8px base ===== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ===== LAYOUT ===== */
+  --content-max:     1160px;
+  --content-pad:     40px;
+  --content-pad-sm:  24px;
+  --grid-gutter:     24px;
+  --email-max:       600px;
+
+  /* ===== RADIUS — sharp by design ===== */
+  --radius-0: 0;
+  --radius-1: 2px;     /* buttons, inputs, cards (default) */
+  --radius-2: 4px;     /* badges, chips */
+  --radius-pill: 999px;/* status pills only */
+
+  /* ===== ELEVATION — subtle, never glossy ===== */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(31, 31, 31, 0.06);                       /* resting card */
+  --shadow-2: 0 2px 6px rgba(31, 31, 31, 0.08), 0 1px 2px rgba(31, 31, 31, 0.06);  /* hover card */
+  --shadow-3: 0 8px 24px rgba(31, 31, 31, 0.10), 0 2px 6px rgba(31, 31, 31, 0.06); /* dropdown, modal */
+  --shadow-inset: inset 0 0 0 1px var(--border);                      /* outline card */
+
+  /* ===== MOTION ===== */
+  --ease-standard: cubic-bezier(0.2, 0.0, 0.0, 1.0);  /* ease-out for entrances */
+  --ease-in-out:   cubic-bezier(0.4, 0.0, 0.2, 1.0);
+  --dur-fast:      120ms;
+  --dur-base:      180ms;
+  --dur-slow:      280ms;
+}
+
+/* ============================================================
+   BASE / RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-body-regular);
+  color: var(--fg-1);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+   TYPOGRAPHIC ELEMENTS — semantic styles
+   ============================================================ */
+.t-display, h1.t-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-black);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+h1, .t-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: -0.005em;
+  margin: 0 0 var(--space-6);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+h2, .t-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  margin: 0 0 var(--space-4);
+  color: var(--fg-1);
+  text-wrap: balance;
+}
+
+h3, .t-h3 {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body-semi);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: 0;
+  margin: 0 0 var(--space-3);
+  color: var(--fg-1);
+}
+
+p, .t-body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  margin: 0 0 var(--space-4);
+  color: var(--fg-1);
+  text-wrap: pretty;
+}
+
+small, .t-small {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--fg-2);
+}
+
+.t-meta {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body-regular);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--fg-3);
+}
+
+.t-label, .eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--fw-body-semi);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+a, .t-link {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+a:hover { color: var(--accent-hover); }
+
+code, .t-mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
