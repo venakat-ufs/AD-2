@@ -50,9 +50,7 @@
         <h1>Nationwide Residential Property Maintenance Services</h1>
         <p>United Field Services is your trusted partner for maintaining your home's value, comfort, and safety.</p>
         <div class="hero-btns">
-          <!-- Fix 5: opens modal -->
           <button class="btn btn--primary btn--lg" id="heroQuoteBtn">Get Free Quote&nbsp;<span class="arrow">→</span></button>
-          <!-- Fix 2: replaced "Our Services" with Call Us button -->
           <a href="tel:8774639010" class="btn btn--outline-dark btn--lg"><span class="lucide-ico lucide-ico--sm"><i data-lucide="phone"></i></span>&nbsp;Call Us: (877) 463-9010</a>
         </div>
         <div class="hero__strip">
@@ -64,6 +62,23 @@
       <div class="hero__media">
         <div class="photo-ph">
           <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80" alt="Residential property exterior">
+        </div>
+      </div>
+    </div>
+    <!-- Callback bar embedded in hero -->
+    <div class="hero-callback">
+      <div class="container">
+        <div class="callback-bar__inner">
+          <div class="callback-bar__lead">
+            <span class="eyebrow">Request a callback</span>
+            <strong>We'll call you back — fast.</strong>
+          </div>
+          <form class="callback-bar__form" id="callbackBarForm">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+            <input type="email" class="form-control" placeholder="Your Email" required>
+            <input type="tel" class="form-control" placeholder="Your Phone" required>
+            <button type="submit" class="btn btn--primary">Request Callback&nbsp;<span class="arrow">→</span></button>
+          </form>
         </div>
       </div>
     </div>
@@ -151,24 +166,6 @@
             <button class="btn btn--outline service-quote-btn" onclick="document.getElementById('quoteModal').classList.add('active')">Get Quote&nbsp;<span class="arrow">→</span></button>
           </div>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fix 9: Callback bar between Services and Why Choose Us -->
-  <section class="callback-bar">
-    <div class="container">
-      <div class="callback-bar__inner">
-        <div class="callback-bar__lead">
-          <span class="eyebrow">Request a callback</span>
-          <strong>We'll call you back — fast.</strong>
-        </div>
-        <form class="callback-bar__form" id="callbackBarForm">
-          <input type="text" class="form-control" placeholder="Your Name" required>
-          <input type="email" class="form-control" placeholder="Your Email" required>
-          <input type="tel" class="form-control" placeholder="Your Phone" required>
-          <button type="submit" class="btn btn--primary">Request Callback&nbsp;<span class="arrow">→</span></button>
-        </form>
       </div>
     </div>
   </section>
