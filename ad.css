@@ -248,7 +248,9 @@ body[data-services="editorial"] .service-content { padding: 36px 32px; }
 .why-us { background: var(--white); }
 .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-12); }
 .feature { display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--accent); padding-top: 22px; }
-.feature__icon { color: var(--accent); }
+.feature__header { display: flex; align-items: center; gap: 12px; }
+.feature__header h3 { margin: 0; }
+.feature__icon { color: var(--accent); flex: 0 0 auto; }
 .feature h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--fg-1); margin: 0; text-wrap: balance; }
 .feature p { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--fg-2); margin: 0; }
 
@@ -363,35 +365,36 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
    FIX 9: CALLBACK BAR — embedded at bottom of hero
    ========================================================================= */
 .hero-callback {
-  padding: 32px 0;
+  padding: 36px 0 40px;
   margin-top: 40px;
-}
-.hero-callback .callback-bar__inner {
-  justify-content: center;
 }
 .callback-bar__inner {
   display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 .callback-bar__lead {
-  display: flex; flex-direction: column; gap: 6px; flex: 0 0 auto;
+  display: flex; flex-direction: column; gap: 4px; flex: 0 0 auto;
 }
 .callback-bar__lead .eyebrow { color: var(--ufs-gold); }
 .callback-bar__lead strong {
-  font-family: var(--font-display); font-weight: 700; font-size: 24px;
-  color: var(--off-white); line-height: 1.2;
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  color: var(--off-white); line-height: 1.2; white-space: nowrap;
 }
 .callback-bar__form {
-  display: flex; gap: 12px; flex-wrap: wrap; align-items: center; flex: 1;
+  display: flex; gap: 0; align-items: stretch; flex: 1; max-width: 700px;
+  background: rgba(247,245,242,0.08);
+  border: 1px solid rgba(247,245,242,0.15);
+  border-radius: var(--radius-1);
+  overflow: hidden;
 }
 .callback-bar__form .form-control {
-  flex: 1; min-width: 160px; height: 46px; padding: 0 14px;
-  background: rgba(247,245,242,0.10); border-color: rgba(247,245,242,0.2);
-  color: var(--off-white);
+  flex: 1; min-width: 0; height: 48px; padding: 0 16px;
+  background: transparent; border: none; border-right: 1px solid rgba(247,245,242,0.15);
+  color: var(--off-white); border-radius: 0;
 }
-.callback-bar__form .form-control::placeholder { color: rgba(247,245,242,0.5); }
-.callback-bar__form .form-control:focus { border-color: var(--ufs-gold); box-shadow: 0 0 0 3px rgba(240,216,170,0.2); }
-.callback-bar__form .btn { height: 46px; white-space: nowrap; flex: 0 0 auto; }
+.callback-bar__form .form-control::placeholder { color: rgba(247,245,242,0.45); }
+.callback-bar__form .form-control:focus { outline: none; background: rgba(247,245,242,0.06); box-shadow: none; }
+.callback-bar__form .btn { height: 48px; white-space: nowrap; flex: 0 0 auto; border-radius: 0; }
 
 /* =========================================================================
    FIX 5: QUOTE MODAL
