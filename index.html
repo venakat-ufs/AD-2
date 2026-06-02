@@ -30,9 +30,12 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
 
+      <!-- Fix 3: email added left of phone | Fix 4: renamed to Contact Us -->
       <div class="header-contact">
+        <a class="email" href="mailto:inquire@unitedffs.com"><span class="lucide-ico lucide-ico--sm"><i data-lucide="mail"></i></span> inquire@unitedffs.com</a>
         <a class="phone" href="tel:8774639010"><span class="lucide-ico lucide-ico--sm"><i data-lucide="phone"></i></span> (877) 463-9010</a>
-        <a href="#contact" class="btn btn--primary">Get Quote&nbsp;<span class="arrow">→</span></a>
+        <!-- Fix 4+5: renamed to Contact Us, opens modal -->
+        <button class="btn btn--primary" id="openQuoteModal">Contact Us&nbsp;<span class="arrow">→</span></button>
       </div>
 
       <button class="mobile-menu" aria-label="Menu"><span class="lucide-ico"><i data-lucide="menu"></i></span></button>
@@ -47,8 +50,10 @@
         <h1>Nationwide Residential Property Maintenance Services</h1>
         <p>United Field Services is your trusted partner for maintaining your home's value, comfort, and safety.</p>
         <div class="hero-btns">
-          <a href="#contact" class="btn btn--primary btn--lg">Get Free Quote&nbsp;<span class="arrow">→</span></a>
-          <a href="#services" class="btn btn--outline-dark btn--lg">Our Services</a>
+          <!-- Fix 5: opens modal -->
+          <button class="btn btn--primary btn--lg" id="heroQuoteBtn">Get Free Quote&nbsp;<span class="arrow">→</span></button>
+          <!-- Fix 2: replaced "Our Services" with Call Us button -->
+          <a href="tel:8774639010" class="btn btn--outline-dark btn--lg"><span class="lucide-ico lucide-ico--sm"><i data-lucide="phone"></i></span>&nbsp;Call Us: (877) 463-9010</a>
         </div>
         <div class="hero__strip">
           <span>Licensed</span><span class="arrow">→</span>
@@ -74,65 +79,96 @@
       </div>
 
       <div class="services-grid">
+        <!-- Fix 6: icon + title same row via .service-header | Fix 8: button instead of link -->
         <article class="service-card">
           <div class="service-img"><div class="photo-ph"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80" alt="Home repairs"></div></div>
           <div class="service-content">
-            <span class="service-icon lucide-ico"><i data-lucide="wrench"></i></span>
-            <h3>Repairs</h3>
+            <div class="service-header">
+              <span class="service-icon lucide-ico"><i data-lucide="wrench"></i></span>
+              <h3>Repairs</h3>
+            </div>
             <p>Our property maintenance services include addressing leaks, repairing damaged walls or floors, and replacing broken fixtures or appliances.</p>
-            <a href="#contact" class="service-link">Get Quote&nbsp;<span class="arrow">→</span></a>
+            <button class="btn btn--outline service-quote-btn" onclick="document.getElementById('quoteModal').classList.add('active')">Get Quote&nbsp;<span class="arrow">→</span></button>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-img"><div class="photo-ph"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=900&q=80" alt="Cleaning"></div></div>
           <div class="service-content">
-            <span class="service-icon lucide-ico"><i data-lucide="spray-can"></i></span>
-            <h3>Cleaning</h3>
+            <div class="service-header">
+              <span class="service-icon lucide-ico"><i data-lucide="spray-can"></i></span>
+              <h3>Cleaning</h3>
+            </div>
             <p>We provide regular cleaning services to maintain the presentation of your home, including common areas and individual rooms.</p>
-            <a href="#contact" class="service-link">Get Quote&nbsp;<span class="arrow">→</span></a>
+            <button class="btn btn--outline service-quote-btn" onclick="document.getElementById('quoteModal').classList.add('active')">Get Quote&nbsp;<span class="arrow">→</span></button>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-img"><div class="photo-ph"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Landscaping"></div></div>
           <div class="service-content">
-            <span class="service-icon lucide-ico"><i data-lucide="trees"></i></span>
-            <h3>Landscaping</h3>
+            <div class="service-header">
+              <span class="service-icon lucide-ico"><i data-lucide="trees"></i></span>
+              <h3>Landscaping</h3>
+            </div>
             <p>Our property maintenance services include landscaping to keep the exterior of your home or property looking its best.</p>
-            <a href="#contact" class="service-link">Get Quote&nbsp;<span class="arrow">→</span></a>
+            <button class="btn btn--outline service-quote-btn" onclick="document.getElementById('quoteModal').classList.add('active')">Get Quote&nbsp;<span class="arrow">→</span></button>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-img"><div class="photo-ph"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80" alt="HVAC maintenance"></div></div>
           <div class="service-content">
-            <span class="service-icon lucide-ico"><i data-lucide="air-vent"></i></span>
-            <h3>HVAC Maintenance</h3>
+            <div class="service-header">
+              <span class="service-icon lucide-ico"><i data-lucide="air-vent"></i></span>
+              <h3>HVAC Maintenance</h3>
+            </div>
             <p>Our HVAC maintenance services include inspections and repairs to ensure proper functioning of your home's heating and cooling systems.</p>
-            <a href="#contact" class="service-link">Get Quote&nbsp;<span class="arrow">→</span></a>
+            <button class="btn btn--outline service-quote-btn" onclick="document.getElementById('quoteModal').classList.add('active')">Get Quote&nbsp;<span class="arrow">→</span></button>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-img"><div class="photo-ph"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80" alt="Electrical work"></div></div>
           <div class="service-content">
-            <span class="service-icon lucide-ico"><i data-lucide="zap"></i></span>
-            <h3>Electrical</h3>
+            <div class="service-header">
+              <span class="service-icon lucide-ico"><i data-lucide="zap"></i></span>
+              <h3>Electrical</h3>
+            </div>
             <p>We provide electrical inspections and repairs as part of our residential maintenance services to ensure safety and functionality.</p>
-            <a href="#contact" class="service-link">Get Quote&nbsp;<span class="arrow">→</span></a>
+            <button class="btn btn--outline service-quote-btn" onclick="document.getElementById('quoteModal').classList.add('active')">Get Quote&nbsp;<span class="arrow">→</span></button>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-img"><div class="photo-ph"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=80" alt="Painting"></div></div>
           <div class="service-content">
-            <span class="service-icon lucide-ico"><i data-lucide="paint-roller"></i></span>
-            <h3>Painting</h3>
+            <div class="service-header">
+              <span class="service-icon lucide-ico"><i data-lucide="paint-roller"></i></span>
+              <h3>Painting</h3>
+            </div>
             <p>Our painting services aim to refresh the appearance of your home, both inside and out, ensuring your property remains attractive.</p>
-            <a href="#contact" class="service-link">Get Quote&nbsp;<span class="arrow">→</span></a>
+            <button class="btn btn--outline service-quote-btn" onclick="document.getElementById('quoteModal').classList.add('active')">Get Quote&nbsp;<span class="arrow">→</span></button>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fix 9: Callback bar between Services and Why Choose Us -->
+  <section class="callback-bar">
+    <div class="container">
+      <div class="callback-bar__inner">
+        <div class="callback-bar__lead">
+          <span class="eyebrow">Request a callback</span>
+          <strong>We'll call you back — fast.</strong>
+        </div>
+        <form class="callback-bar__form" id="callbackBarForm">
+          <input type="text" class="form-control" placeholder="Your Name" required>
+          <input type="email" class="form-control" placeholder="Your Email" required>
+          <input type="tel" class="form-control" placeholder="Your Phone" required>
+          <button type="submit" class="btn btn--primary">Request Callback&nbsp;<span class="arrow">→</span></button>
+        </form>
       </div>
     </div>
   </section>
@@ -274,8 +310,9 @@
 
         <div class="contact-form">
           <form id="contactForm">
+            <!-- Fix 7: renamed labels -->
             <div class="form-group">
-              <label for="name">Your Name</label>
+              <label for="name">Full Name</label>
               <input type="text" id="name" class="form-control" required>
             </div>
 
@@ -285,7 +322,7 @@
             </div>
 
             <div class="form-group">
-              <label for="phone">Your Phone</label>
+              <label for="phone">Mobile Number</label>
               <input type="tel" id="phone" class="form-control" required>
             </div>
 
@@ -382,6 +419,44 @@
     </form>
   </div>
 
+  <!-- Fix 5: Quote Modal -->
+  <div class="modal-overlay" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Get a FREE Quotation on Your Requirement</h3>
+        <button class="modal-close" id="closeQuoteModal" aria-label="Close">&times;</button>
+      </div>
+      <form id="modalQuoteForm">
+        <div class="form-group">
+          <label for="modal-name">Full Name</label>
+          <input type="text" id="modal-name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-email">Your Email</label>
+          <input type="email" id="modal-email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-phone">Mobile Number</label>
+          <input type="tel" id="modal-phone" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-service">Service Needed</label>
+          <select id="modal-service" class="form-control" required>
+            <option value="">Select a service</option>
+            <option value="repairs">Repairs</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="landscaping">Landscaping</option>
+            <option value="hvac">HVAC Maintenance</option>
+            <option value="electrical">Electrical</option>
+            <option value="painting">Painting</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block btn--lg">Get Free Quote&nbsp;<span class="arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+
   <!-- Tweaks panel mount -->
   <div id="tweaks-root"></div>
 
@@ -425,6 +500,38 @@
     });
     document.querySelector('.close-float').addEventListener('click', function () {
       document.querySelector('.quick-callback-float').style.display = 'none';
+    });
+
+    // Callback bar form
+    document.getElementById('callbackBarForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you! We will call you back soon.');
+      this.reset();
+    });
+
+    // Quote Modal
+    function openModal() {
+      document.getElementById('quoteModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('quoteModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('openQuoteModal').addEventListener('click', openModal);
+    document.getElementById('heroQuoteBtn').addEventListener('click', openModal);
+    document.getElementById('closeQuoteModal').addEventListener('click', closeModal);
+    document.getElementById('quoteModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    document.getElementById('modalQuoteForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you! We will contact you shortly with your free quote.');
+      this.reset();
+      closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
     });
 
     // Smooth scrolling
