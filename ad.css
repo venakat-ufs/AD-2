@@ -363,9 +363,11 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
    FIX 9: CALLBACK BAR — embedded at bottom of hero
    ========================================================================= */
 .hero-callback {
-  border-top: 1px solid rgba(247,245,242,0.12);
   padding: 32px 0;
-  margin-top: 48px;
+  margin-top: 40px;
+}
+.hero-callback .callback-bar__inner {
+  justify-content: center;
 }
 .callback-bar__inner {
   display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
