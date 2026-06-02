@@ -364,9 +364,9 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
 /* =========================================================================
    FIX 9: CALLBACK BAR — embedded at bottom of hero
    ========================================================================= */
-.hero-callback {
-  padding: 36px 0 40px;
-  margin-top: 40px;
+.callback-bar {
+  background: var(--ufs-charcoal);
+  padding: 40px 0;
 }
 .callback-bar__inner {
   display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
@@ -445,7 +445,7 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
   .services-grid, body[data-services="editorial"] .services-grid { grid-template-columns: 1fr 1fr; }
   .features-grid { grid-template-columns: 1fr 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
-  .hero-callback .callback-bar__inner { flex-direction: column; align-items: flex-start; }
+  .callback-bar__inner { flex-direction: column; align-items: flex-start; }
   .callback-bar__form { width: 100%; }
 }
 @media (max-width: 768px) {
