@@ -139,10 +139,10 @@ section { padding: 96px 0; }
 .photo-ph__spec { font-family: var(--font-body); font-size: 11px; color: rgba(247,245,242,0.55); }
 
 /* Direction A — Split (dark) [default] */
-/* Fix 1: reduced top padding */
-.hero[data-hero="split"] { background: var(--ufs-charcoal); padding: 48px 0 72px; }
-.hero[data-hero="split"] .hero__inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
-.hero[data-hero="split"] h1 { font-size: 68px; }
+/* Desktop fix 1: compact padding so both hero buttons are visible on load */
+.hero[data-hero="split"] { background: var(--ufs-charcoal); padding: 32px 0 40px; }
+.hero[data-hero="split"] .hero__inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.hero[data-hero="split"] h1 { font-size: 52px; }
 .hero[data-hero="split"] .hero__copy { text-align: left; align-items: flex-start; }
 .hero[data-hero="split"] .hero-btns { justify-content: flex-start; }
 .hero[data-hero="split"] .hero__media { display: block; }
@@ -434,6 +434,12 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
 .modal-close:hover { color: var(--fg-1); }
 .modal form { padding: 24px 32px 32px; }
 
+/* Desktop fix 2: center-align service card Get Quote button */
+.service-quote-btn { align-self: center; }
+
+/* Desktop fix: mobile contact title — hidden on desktop */
+.contact-form__mobile-title { display: none; }
+
 /* =========================================================================
    RESPONSIVE
    ========================================================================= */
@@ -447,18 +453,57 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
   .callback-bar__inner { flex-direction: column; align-items: flex-start; }
   .callback-bar__form { width: 100%; }
+
+  /* Mobile fix 4: burger menu dropdown */
+  .nav-menu.active {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 72px; left: 0; right: 0; z-index: 49;
+    background: var(--ufs-charcoal);
+    padding: 8px 0;
+    border-top: 1px solid rgba(247,245,242,0.12);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .nav-menu.active li { width: 100%; }
+  .nav-menu.active li a {
+    display: block; padding: 14px 24px; font-size: 16px;
+    border-bottom: 1px solid rgba(247,245,242,0.08);
+  }
+  .nav-menu.active li:last-child a { border-bottom: none; }
 }
+
 @media (max-width: 768px) {
   section { padding: 64px 0; }
   .section-title h2 { font-size: 32px; }
-  .hero[data-hero="split"] h1, .hero[data-hero="fullbleed"] h1, .hero[data-hero="editorial"] h1 { font-size: 40px; }
+  .hero[data-hero="split"] h1, .hero[data-hero="fullbleed"] h1, .hero[data-hero="editorial"] h1 { font-size: 36px; }
   .services-grid, body[data-services="editorial"] .services-grid, .features-grid { grid-template-columns: 1fr; }
   .contact-container { grid-template-columns: 1fr; gap: 40px; }
   .footer-cols { grid-template-columns: 1fr 1fr; }
   .quick-contact__inner { flex-direction: column; align-items: stretch; }
   .quick-contact-form input, .quick-contact-form .btn { width: 100%; }
   .hero-btns .btn { flex: 1; }
-  .callback-bar__form .form-control, .callback-bar__form .btn { width: 100%; flex: unset; }
   .modal-header { padding: 20px 20px 16px; }
   .modal form { padding: 16px 20px 24px; }
+
+  /* Mobile fix 1: WhatsApp icon on right side */
+  .whatsapp-mobile { left: auto; right: 24px; }
+
+  /* Mobile fix 2: "Contact Us" title above footer form */
+  .contact-form__mobile-title {
+    display: block;
+    font-family: var(--font-display); font-weight: 700; font-size: 28px;
+    color: var(--fg-1); margin: 0 0 20px;
+  }
+
+  /* Mobile fix 3: callback bar — 1 field per row, stacked */
+  .callback-bar__form {
+    flex-direction: column; gap: 10px;
+    background: transparent; border: none; border-radius: 0;
+    overflow: visible;
+  }
+  .callback-bar__form .form-control {
+    width: 100%; flex: unset; height: 48px;
+    border: 1px solid rgba(247,245,242,0.25); border-radius: var(--radius-1);
+    padding: 0 16px;
+  }
+  .callback-bar__form .btn { width: 100%; border-radius: var(--radius-1); height: 48px; }
 }

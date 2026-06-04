@@ -34,8 +34,8 @@
       <div class="header-contact">
         <a class="email" href="mailto:inquire@unitedffs.com"><span class="lucide-ico lucide-ico--sm"><i data-lucide="mail"></i></span> inquire@unitedffs.com</a>
         <a class="phone" href="tel:8774639010"><span class="lucide-ico lucide-ico--sm"><i data-lucide="phone"></i></span> (877) 463-9010</a>
-        <!-- Fix 4+5: renamed to Contact Us, opens modal -->
-        <button class="btn btn--primary" id="openQuoteModal">Contact Us&nbsp;<span class="arrow">→</span></button>
+        <!-- Desktop #4: Contact Us scrolls to contact section -->
+        <a href="#contact" class="btn btn--primary">Contact Us&nbsp;<span class="arrow">→</span></a>
       </div>
 
       <button class="mobile-menu" aria-label="Menu"><span class="lucide-ico"><i data-lucide="menu"></i></span></button>
@@ -315,6 +315,7 @@
         </div>
 
         <div class="contact-form">
+          <h2 class="contact-form__mobile-title">Contact Us</h2>
           <form id="contactForm">
             <!-- Fix 7: renamed labels -->
             <div class="form-group">
@@ -333,9 +334,9 @@
             </div>
 
             <div class="form-group">
-              <label for="service">Service Needed</label>
+              <label for="service">Your Requirement</label>
               <select id="service" class="form-control" required>
-                <option value="">Select a service</option>
+                <option value="">Describe your requirement</option>
                 <option value="repairs">Repairs</option>
                 <option value="cleaning">Cleaning</option>
                 <option value="landscaping">Landscaping</option>
@@ -446,9 +447,9 @@
           <input type="tel" id="modal-phone" class="form-control" required>
         </div>
         <div class="form-group">
-          <label for="modal-service">Service Needed</label>
+          <label for="modal-service">Your Requirement</label>
           <select id="modal-service" class="form-control" required>
-            <option value="">Select a service</option>
+            <option value="">Describe your requirement</option>
             <option value="repairs">Repairs</option>
             <option value="cleaning">Cleaning</option>
             <option value="landscaping">Landscaping</option>
@@ -524,7 +525,6 @@
       document.getElementById('quoteModal').classList.remove('active');
       document.body.style.overflow = '';
     }
-    document.getElementById('openQuoteModal').addEventListener('click', openModal);
     document.getElementById('heroQuoteBtn').addEventListener('click', openModal);
     document.getElementById('closeQuoteModal').addEventListener('click', closeModal);
     document.getElementById('quoteModal').addEventListener('click', function (e) {
