@@ -468,10 +468,38 @@
   <div id="tweaks-root"></div>
 
   <script>
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby1aTaCYUa1lEOnj0dnz3UgoWCiTRVrU8rD7CTkvOtS-v6XCgo2HGNxIx91WlatA9fNpQ/exec';
+
     function renderIcons() {
       if (window.lucide) window.lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
     }
     renderIcons();
+
+    // Submit to Google Sheets + email
+    function submitToSheet(data, btn, successMsg) {
+      var originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function () {
+        btn.textContent = '✓ Sent!';
+        btn.style.background = '#2a6e3f';
+        setTimeout(function () {
+          btn.disabled = false;
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+        }, 3000);
+      }).catch(function () {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        alert('Something went wrong. Please call us at (877) 463-9010.');
+      });
+    }
 
     // Mobile menu toggle
     document.querySelector('.mobile-menu').addEventListener('click', function () {
@@ -490,20 +518,34 @@
     // Contact form
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Thank you for your inquiry! We will contact you shortly with your free quote.');
+      var btn = this.querySelector('[type=submit]');
+      submitToSheet({
+        form: 'Contact Form',
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        requirement: document.getElementById('service').value
+      }, btn);
       this.reset();
     });
 
     // Quick callback float
     document.getElementById('quickCallbackForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      const inputs = this.querySelectorAll('.form-control');
-      let valid = true;
-      inputs.forEach(i => {
+      var inputs = this.querySelectorAll('.form-control');
+      var valid = true;
+      inputs.forEach(function(i) {
         if (!i.value) { valid = false; i.style.borderColor = 'var(--status-danger)'; }
         else { i.style.borderColor = 'var(--warm-gray)'; }
       });
-      if (valid) { alert('Thank you! We will call you back soon.'); this.reset(); }
+      if (!valid) return;
+      var btn = this.querySelector('[type=submit]');
+      submitToSheet({
+        form: 'Quick Callback',
+        name: inputs[0].value,
+        phone: inputs[1].value
+      }, btn);
+      this.reset();
     });
     document.querySelector('.close-float').addEventListener('click', function () {
       document.querySelector('.quick-callback-float').style.display = 'none';
@@ -512,7 +554,14 @@
     // Callback bar form
     document.getElementById('callbackBarForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Thank you! We will call you back soon.');
+      var inputs = this.querySelectorAll('.form-control');
+      var btn = this.querySelector('[type=submit]');
+      submitToSheet({
+        form: 'Callback Bar',
+        name: inputs[0].value,
+        email: inputs[1].value,
+        phone: inputs[2].value
+      }, btn);
       this.reset();
     });
 
@@ -532,9 +581,16 @@
     });
     document.getElementById('modalQuoteForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      alert('Thank you! We will contact you shortly with your free quote.');
+      var btn = this.querySelector('[type=submit]');
+      submitToSheet({
+        form: 'Quote Modal',
+        name: document.getElementById('modal-name').value,
+        email: document.getElementById('modal-email').value,
+        phone: document.getElementById('modal-phone').value,
+        requirement: document.getElementById('modal-service').value
+      }, btn);
       this.reset();
-      closeModal();
+      setTimeout(closeModal, 2000);
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeModal();
