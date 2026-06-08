@@ -298,6 +298,7 @@ body[data-services="editorial"] .service-content { padding: 36px 32px; }
   background: var(--white); outline: none; width: 100%;
 }
 .form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--focus-ring); }
+textarea.form-control { resize: vertical; min-height: 80px; line-height: 1.5; }
 
 /* =========================================================================
    FOOTER
@@ -445,7 +446,7 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
    ========================================================================= */
 @media (max-width: 992px) {
   .nav-menu, .header-contact { display: none; }
-  .mobile-menu { display: block; }
+  .mobile-menu { display: block; margin-left: auto; }
   .whatsapp-mobile { display: flex; }
   .quick-callback-float { display: none; }
   .services-grid, body[data-services="editorial"] .services-grid { grid-template-columns: 1fr 1fr; }
