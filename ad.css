@@ -325,11 +325,11 @@ body[data-floats="off"] .quick-callback-float { display: none !important; }
 
 .whatsapp-mobile {
   position: fixed; left: 24px; bottom: 24px; width: 56px; height: 56px; z-index: 90;
-  background: #25d366; color: #fff; border-radius: var(--radius-pill);
+  background: var(--accent); color: #fff; border-radius: var(--radius-pill);
   display: none; align-items: center; justify-content: center;
   box-shadow: var(--shadow-3); transition: background var(--dur-fast) var(--ease-standard);
 }
-.whatsapp-mobile:hover { background: #1da851; }
+.whatsapp-mobile:hover { background: var(--accent-hover); }
 
 .quick-callback-float {
   position: fixed; right: 32px; bottom: 32px; width: 288px; z-index: 90;
