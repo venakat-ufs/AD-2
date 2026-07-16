@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>United Field Services | Nationwide Residential Property Maintenance</title>
 <link rel="stylesheet" href="ad.css">
+<!-- Google Ads tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16458927503"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-16458927503');
+</script>
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <style>
   .lucide-ico { display: inline-flex; }
@@ -469,6 +477,7 @@
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(data).toString()
       }).then(function () {
+        gtag('event', 'ads_conversion_Page_view_Page_load_htt_1', {});
         btn.textContent = '✓ Sent!';
         btn.style.background = '#2a6e3f';
         setTimeout(function () {
